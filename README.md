@@ -11,6 +11,7 @@ Java 注解为我们编程带来了极大的便利，但是在开发的过程中
 
 ### 前置条件：
 * maven
+* jdk 1.8
 
 
 ### 引入依赖
@@ -23,6 +24,23 @@ Java 注解为我们编程带来了极大的便利，但是在开发的过程中
 </dependency>
 ```
 
+### 配置编译器
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.7.0</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
 ### 使用元注解定义注解
 ```java
 
