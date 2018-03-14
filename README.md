@@ -50,6 +50,14 @@ Java 注解为我们编程带来了极大的便利，但是在开发的过程中
 public @interface Update {
     
 }
+
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Delete {
+    
+}
+
 ```
 ### 编译时报错
 
@@ -58,7 +66,7 @@ public class UserDao {
     
     // 此处将会编译报错
     @Update
-    @Query
+    @Delete
     public void getDetail() {
     }
 }
@@ -66,9 +74,7 @@ public class UserDao {
 ```
 
 ## 原理
-
-使用
-```ConflictAnnotationProcessor``` 处理Conflict冲突的发现和报错，此类被作为Processor 的服务实现类，通过SPI被发现
+使用```ConflictAnnotationProcessor``` 处理Conflict冲突的发现和报错，此类被作为Processor 的服务实现类，通过SPI被发现
 
 
 
